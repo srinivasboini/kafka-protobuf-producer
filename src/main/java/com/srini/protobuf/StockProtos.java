@@ -3,28 +3,49 @@
 
 package com.srini.protobuf;
 
+/**
+ * The type Stock protos.
+ */
 public final class StockProtos {
   private StockProtos() {}
+
+  /**
+   * Register all extensions.
+   *
+   * @param registry the registry
+   */
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistryLite registry) {
   }
 
+  /**
+   * Register all extensions.
+   *
+   * @param registry the registry
+   */
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+
+  /**
+   * The interface Stock or builder.
+   */
   public interface StockOrBuilder extends
       // @@protoc_insertion_point(interface_extends:Stock)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <code>string name = 1;</code>
+     *
      * @return The name.
      */
     String getName();
+
     /**
      * <code>string name = 1;</code>
+     *
      * @return The bytes for name.
      */
     com.google.protobuf.ByteString
@@ -32,16 +53,19 @@ public final class StockProtos {
 
     /**
      * <code>int32 isin = 2;</code>
+     *
      * @return The isin.
      */
     int getIsin();
 
     /**
      * <code>int32 volume = 3;</code>
+     *
      * @return The volume.
      */
     int getVolume();
   }
+
   /**
    * Protobuf type {@code Stock}
    */
@@ -70,6 +94,12 @@ public final class StockProtos {
     getUnknownFields() {
       return this.unknownFields;
     }
+
+    /**
+     * Gets descriptor.
+     *
+     * @return the descriptor
+     */
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return StockProtos.internal_static_Stock_descriptor;
@@ -83,6 +113,9 @@ public final class StockProtos {
               Stock.class, Builder.class);
     }
 
+    /**
+     * The constant NAME_FIELD_NUMBER.
+     */
     public static final int NAME_FIELD_NUMBER = 1;
     @SuppressWarnings("serial")
     private volatile Object name_ = "";
@@ -122,6 +155,9 @@ public final class StockProtos {
       }
     }
 
+    /**
+     * The constant ISIN_FIELD_NUMBER.
+     */
     public static final int ISIN_FIELD_NUMBER = 2;
     private int isin_ = 0;
     /**
@@ -133,6 +169,9 @@ public final class StockProtos {
       return isin_;
     }
 
+    /**
+     * The constant VOLUME_FIELD_NUMBER.
+     */
     public static final int VOLUME_FIELD_NUMBER = 3;
     private int volume_ = 0;
     /**
@@ -230,43 +269,110 @@ public final class StockProtos {
       return hash;
     }
 
+    /**
+     * Parse from stock.
+     *
+     * @param data the data
+     * @return the stock
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
     public static Stock parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
+    /**
+     * Parse from stock.
+     *
+     * @param data              the data
+     * @param extensionRegistry the extension registry
+     * @return the stock
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
     public static Stock parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
+    /**
+     * Parse from stock.
+     *
+     * @param data the data
+     * @return the stock
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
     public static Stock parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
+    /**
+     * Parse from stock.
+     *
+     * @param data              the data
+     * @param extensionRegistry the extension registry
+     * @return the stock
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
     public static Stock parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
+    /**
+     * Parse from stock.
+     *
+     * @param data the data
+     * @return the stock
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
     public static Stock parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
+    /**
+     * Parse from stock.
+     *
+     * @param data              the data
+     * @param extensionRegistry the extension registry
+     * @return the stock
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
     public static Stock parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
+    /**
+     * Parse from stock.
+     *
+     * @param input the input
+     * @return the stock
+     * @throws IOException the io exception
+     */
     public static Stock parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
+
+    /**
+     * Parse from stock.
+     *
+     * @param input             the input
+     * @param extensionRegistry the extension registry
+     * @return the stock
+     * @throws IOException the io exception
+     */
     public static Stock parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -274,11 +380,28 @@ public final class StockProtos {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
+
+    /**
+     * Parse delimited from stock.
+     *
+     * @param input the input
+     * @return the stock
+     * @throws IOException the io exception
+     */
     public static Stock parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
+
+    /**
+     * Parse delimited from stock.
+     *
+     * @param input             the input
+     * @param extensionRegistry the extension registry
+     * @return the stock
+     * @throws IOException the io exception
+     */
     public static Stock parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -286,12 +409,29 @@ public final class StockProtos {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
+
+    /**
+     * Parse from stock.
+     *
+     * @param input the input
+     * @return the stock
+     * @throws IOException the io exception
+     */
     public static Stock parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
+
+    /**
+     * Parse from stock.
+     *
+     * @param input             the input
+     * @param extensionRegistry the extension registry
+     * @return the stock
+     * @throws IOException the io exception
+     */
     public static Stock parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -302,9 +442,22 @@ public final class StockProtos {
 
     @Override
     public Builder newBuilderForType() { return newBuilder(); }
+
+    /**
+     * New builder builder.
+     *
+     * @return the builder
+     */
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
+
+    /**
+     * New builder builder.
+     *
+     * @param prototype the prototype
+     * @return the builder
+     */
     public static Builder newBuilder(Stock prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
@@ -320,6 +473,7 @@ public final class StockProtos {
       Builder builder = new Builder(parent);
       return builder;
     }
+
     /**
      * Protobuf type {@code Stock}
      */
@@ -327,6 +481,11 @@ public final class StockProtos {
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:Stock)
         StockOrBuilder {
+      /**
+       * Gets descriptor.
+       *
+       * @return the descriptor
+       */
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return StockProtos.internal_static_Stock_descriptor;
@@ -443,6 +602,12 @@ public final class StockProtos {
         }
       }
 
+      /**
+       * Merge from builder.
+       *
+       * @param other the other
+       * @return the builder
+       */
       public Builder mergeFrom(Stock other) {
         if (other == Stock.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
@@ -548,8 +713,10 @@ public final class StockProtos {
           return (com.google.protobuf.ByteString) ref;
         }
       }
+
       /**
        * <code>string name = 1;</code>
+       *
        * @param value The name to set.
        * @return This builder for chaining.
        */
@@ -561,8 +728,10 @@ public final class StockProtos {
         onChanged();
         return this;
       }
+
       /**
        * <code>string name = 1;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearName() {
@@ -571,8 +740,10 @@ public final class StockProtos {
         onChanged();
         return this;
       }
+
       /**
        * <code>string name = 1;</code>
+       *
        * @param value The bytes for name to set.
        * @return This builder for chaining.
        */
@@ -595,8 +766,10 @@ public final class StockProtos {
       public int getIsin() {
         return isin_;
       }
+
       /**
        * <code>int32 isin = 2;</code>
+       *
        * @param value The isin to set.
        * @return This builder for chaining.
        */
@@ -607,8 +780,10 @@ public final class StockProtos {
         onChanged();
         return this;
       }
+
       /**
        * <code>int32 isin = 2;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearIsin() {
@@ -627,8 +802,10 @@ public final class StockProtos {
       public int getVolume() {
         return volume_;
       }
+
       /**
        * <code>int32 volume = 3;</code>
+       *
        * @param value The volume to set.
        * @return This builder for chaining.
        */
@@ -639,8 +816,10 @@ public final class StockProtos {
         onChanged();
         return this;
       }
+
       /**
        * <code>int32 volume = 3;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearVolume() {
@@ -671,6 +850,11 @@ public final class StockProtos {
       DEFAULT_INSTANCE = new Stock();
     }
 
+    /**
+     * Gets default instance.
+     *
+     * @return the default instance
+     */
     public static Stock getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
@@ -697,6 +881,11 @@ public final class StockProtos {
       }
     };
 
+    /**
+     * Parser com . google . protobuf . parser.
+     *
+     * @return the com . google . protobuf . parser
+     */
     public static com.google.protobuf.Parser<Stock> parser() {
       return PARSER;
     }
@@ -719,6 +908,11 @@ public final class StockProtos {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Stock_fieldAccessorTable;
 
+  /**
+   * Gets descriptor.
+   *
+   * @return the descriptor
+   */
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;

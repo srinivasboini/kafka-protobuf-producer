@@ -10,18 +10,29 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
+/**
+ * The type Producer.
+ */
 @Component
 @RequiredArgsConstructor
 public class Producer {
 
     private final KafkaTemplate<String, StockProtos.Stock> kafkaTemplate ;
 
+    /**
+     * Send.
+     */
     public void send(){
         getStocks().stream()
                 .map(e -> new ProducerRecord<>("stock-topic-1", e.getName(), e))
                 .forEach(kafkaTemplate::send) ;
     }
 
+    /**
+     * Get stocks list.
+     *
+     * @return the list
+     */
     List<StockProtos.Stock> getStocks(){
         List<StockProtos.Stock> stocks = new ArrayList<>() ;
         StockProtos.Stock stock = StockProtos.Stock.newBuilder()
