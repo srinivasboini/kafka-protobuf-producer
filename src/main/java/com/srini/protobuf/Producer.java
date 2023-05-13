@@ -2,12 +2,18 @@ package com.srini.protobuf;
 
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.RandomUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
@@ -15,6 +21,7 @@ import java.util.stream.IntStream;
  */
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class Producer {
 
     private final KafkaTemplate<String, StockProtos.Stock> kafkaTemplate ;
@@ -24,6 +31,7 @@ public class Producer {
      */
     public void send(){
         getStocks().stream()
+                .peek(e -> log.info("{}", e))
                 .map(e -> new ProducerRecord<>("stock-topic-1", e.getName(), e))
                 .forEach(kafkaTemplate::send) ;
     }
@@ -34,15 +42,13 @@ public class Producer {
      * @return the list
      */
     List<StockProtos.Stock> getStocks(){
-        List<StockProtos.Stock> stocks = new ArrayList<>() ;
-        StockProtos.Stock stock = StockProtos.Stock.newBuilder()
-                .setName("ICICI")
-                .setVolume(20)
-                .setIsin(200)
-                .build() ;
 
-        stocks.add(stock) ;
-        return  stocks ;
+        return IntStream.rangeClosed(1,5000).mapToObj(i -> StockProtos.Stock.newBuilder()
+                .setName(RandomStringUtils.randomAlphabetic(5).toUpperCase())
+                .setVolume(RandomUtils.nextInt())
+                .setIsin(RandomUtils.nextInt(100,500))
+                .build()).collect(Collectors.toList());
+
 
     }
 }
