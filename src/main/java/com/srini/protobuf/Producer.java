@@ -7,6 +7,8 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.kafka.clients.producer.ProducerRecord;
+import org.springframework.boot.context.event.ApplicationStartedEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
@@ -29,6 +31,7 @@ public class Producer {
     /**
      * Send.
      */
+    @EventListener(ApplicationStartedEvent.class)
     public void send(){
         getStocks().stream()
                 .peek(e -> log.info("{}", e))

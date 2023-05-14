@@ -10,10 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * The type Kafka protobuf producer application.
  */
 @SpringBootApplication
-@RequiredArgsConstructor
-public class KafkaProtobufProducerApplication implements CommandLineRunner {
 
-	private final Producer producer ;
+public class KafkaProtobufProducerApplication {
 
 	/**
 	 * The entry point of application.
@@ -24,8 +22,5 @@ public class KafkaProtobufProducerApplication implements CommandLineRunner {
 		SpringApplication.run(KafkaProtobufProducerApplication.class, args);
 	}
 
-	@Override
-	public void run(String... args) throws Exception {
-		producer.send();
-	}
+
 }
