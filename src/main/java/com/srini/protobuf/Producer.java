@@ -24,7 +24,7 @@ import java.util.stream.IntStream;
 @Slf4j
 public class Producer {
 
-    private final KafkaTemplate<String, StockProtos.Stock> kafkaTemplate ;
+    private final KafkaTemplate<String, Stock> kafkaTemplate ;
 
     /**
      * Send.
@@ -41,9 +41,9 @@ public class Producer {
      *
      * @return the list
      */
-    List<StockProtos.Stock> getStocks(){
+    List<Stock> getStocks(){
 
-        return IntStream.rangeClosed(1,5000).mapToObj(i -> StockProtos.Stock.newBuilder()
+        return IntStream.rangeClosed(1,5000).mapToObj(i -> Stock.newBuilder()
                 .setName(RandomStringUtils.randomAlphabetic(5).toUpperCase())
                 .setVolume(RandomUtils.nextInt())
                 .setIsin(RandomUtils.nextInt(100,500))
